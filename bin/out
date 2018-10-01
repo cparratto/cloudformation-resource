@@ -64,8 +64,10 @@ fi
 # upload the cloudformation json using the aws cli
 CAPABILITIES=$(jq -r '.params.capabilities // empty' < /tmp/input)
 if [ -z "$CAPABILITIES" ]; then
+  echo "will be missing capabilities"
   CAPABILITIES_ARG=""
 else
+  echo "should have capbilities" 
   CAPABILITIES_ARG="--capabilities=$CAPABILITIES"
 fi
 
